@@ -1,0 +1,50 @@
+Code Breakdown:
+Importing the 'fs' module: The fs module in Node.js is used to interact with the file system. The line const fs = require('fs'); imports this module so you can use its functions.
+
+javascript
+
+Copy
+const fs = require('fs');
+Reading a file: The fs.readFile function reads the contents of a file. It takes three arguments:
+
+The path to the file (example.txt in this case).
+
+The encoding type ('utf8' means it will read the file as a string).
+
+A callback function that gets called after the file is read.
+
+Callback function: This function is executed once fs.readFile has finished reading the file. It has two parameters:
+
+err: This will contain any error that occurred while reading the file. If there's no error, it will be null.
+
+data: This will contain the contents of the file.
+
+Handling errors: If an error occurs (e.g., the file doesn't exist), it will be thrown and the program will stop running.
+
+javascript
+
+Copy
+if (err) throw err;
+Printing the file contents: If there are no errors, the contents of the file are printed to the console.
+
+javascript
+
+Copy
+console.log(data);
+Full Code with Comments:
+javascript
+
+Copy
+// Import the 'fs' module
+const fs = require('fs');
+
+// Read the contents of 'example.txt'
+fs.readFile('example.txt', 'utf8', (err, data) => {
+    // If there's an error, throw it
+    if (err) throw err;
+    // If no error, log the file contents
+    console.log(data);
+});
+In simple terms, this code reads the content of a file named example.txt and prints it to the console. If there's any error in reading the file, it will stop the execution and display the error.
+
+I hope this explanation helps! Let me know if you have any more questions. 😊
